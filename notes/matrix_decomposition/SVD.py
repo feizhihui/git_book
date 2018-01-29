@@ -39,5 +39,6 @@ eig = np.round(eig, 9)
 delta = eig_transform(data_square, eig)
 # print(data_square)
 # print(np.dot(np.dot(Q, delta), Q.T))
+# print(Q @ delta @ Q.T)
 # 奇异值的平方等于特征值
 print(sorted(np.sqrt(eig), reverse=True))
