@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    kNN和降维
+    大规模数据降维度IncrementalPCA
     ~~~~~~~~~~
 
     PCA
@@ -31,11 +31,11 @@ def test_PCA(*data):
     :return: None
     '''
     X, y = data
-    pca = decomposition.PCA(n_components=None)  # 使用默认的 n_components
+    pca = decomposition.IncrementalPCA(n_components=None, batch_size=16)  # 指示按批次训练，默认为5*n_features
     # pca.fit(X)
     X_r = pca.fit_transform(X)
     print(X_r[:5])  # 默认n_components 没有降维,特征是按奇异值从大到小后排序后的
-    print(pca.components_)
+    print(pca.inverse_transform(X_r[:5]))  # 还原原始数据
     print('explained variance ratio : %s' % str(pca.explained_variance_ratio_))
 
 
@@ -47,7 +47,7 @@ def plot_PCA(*data):
     :return: None
     '''
     X, y = data
-    pca = decomposition.PCA(n_components=2)  # 目标维度为2维
+    pca = decomposition.IncrementalPCA(n_components=2)  # 目标维度为2维
     pca.fit(X)
     X_r = pca.transform(X)  # 原始数据集转换到二维
     print(X_r[:5])
