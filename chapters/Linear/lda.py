@@ -127,6 +127,6 @@ def test_LinearDiscriminantAnalysis_shrinkage(*data):
 if __name__ == '__main__':
     X_train, X_test, y_train, y_test = load_data()  # 产生用于分类的数据集
     test_LinearDiscriminantAnalysis(X_train, X_test, y_train, y_test)  # 调用 test_LinearDiscriminantAnalysis
-    # run_plot_LDA() # 调用 run_plot_LDA
-    # test_LinearDiscriminantAnalysis_solver(X_train,X_test,y_train,y_test) # 调用 test_LinearDiscriminantAnalysis_solver
-    # test_LinearDiscriminantAnalysis_shrinkage(X_train,X_test,y_train,y_test) # 调用 test_LinearDiscriminantAnalysis_shrinkage
+    run_plot_LDA() # 调用 run_plot_LDA
+    test_LinearDiscriminantAnalysis_solver(X_train,X_test,y_train,y_test) # 调用 test_LinearDiscriminantAnalysis_solver
+    test_LinearDiscriminantAnalysis_shrinkage(X_train,X_test,y_train,y_test) # 调用 test_LinearDiscriminantAnalysis_shrinkage
